@@ -1,0 +1,43 @@
+
+[2024-06-25 22:57:44] Traceback (most recent call last):
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\pythonnet\__init__.py", line 73, in _create_runtime_from_spec
+    return clr_loader.get_netfx(**params)
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\clr_loader\__init__.py", line 166, in get_netfx
+    from .netfx import NetFx
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\clr_loader\netfx.py", line 5, in <module>
+    from .ffi import ffi, load_netfx
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\clr_loader\ffi\__init__.py", line 11, in <module>
+    ffi = cffi.FFI()  # type: ignore
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\cffi\api.py", line 48, in __init__
+    import _cffi_backend as backend
+ModuleNotFoundError: No module named '_cffi_backend'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\tez\toy\python\tkinter\test\test.py", line 11, in <module>
+    webview.start(gui='cef')
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\webview\__init__.py", line 166, in start
+    guilib = initialize(gui)
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\webview\guilib.py", line 134, in initialize
+    if not try_import(guis):
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\webview\guilib.py", line 83, in try_import
+    if import_func():
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\webview\guilib.py", line 72, in import_winforms
+    import webview.platforms.winforms as guilib
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\webview\platforms\winforms.py", line 13, in <module>
+    import clr
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\clr.py", line 6, in <module>
+    load()
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\pythonnet\__init__.py", line 133, in load
+    set_runtime_from_env()
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\pythonnet\__init__.py", line 114, in set_runtime_from_env
+    runtime = _create_runtime_from_spec(spec)
+  File "C:\Users\tez\mambaforge\envs\tkinter\lib\site-packages\pythonnet\__init__.py", line 82, in _create_runtime_from_spec
+    raise RuntimeError(
+RuntimeError: Failed to create a default .NET runtime, which would
+                    have been "netfx" on this system. Either install a
+                    compatible runtime or configure it explicitly via
+                    `set_runtime` or the `PYTHONNET_*` environment variables
+                    (see set_runtime_from_env).
+

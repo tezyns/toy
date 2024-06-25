@@ -1,21 +1,11 @@
-import tkinter
-from tkwebview2.tkwebview2 import WebView2
-from System.Threading import Thread,ApartmentState,ThreadStart    
+import webview
 
-def main():
-    root = tkinter.Tk()
+# To pass custom settings to CEF, import and update settings dict
+from webview.platforms.cef import browser_settings, settings
 
-    frame=WebView2(root,100,100)
-    frame.pack(side='left')
-    frame.load_html('<h1>hi hi</h1>')
+settings.update({'persist_session_cookies': True})
+browser_settings.update({'dom_paste_disabled': False})
 
-    frame2=WebView2(root,500,500)
-    frame2.pack(side='left',padx=20,fill='both',expand=True)
-    frame2.load_url('https://letskorail.com/')
-
-    root.mainloop()
-
-t = Thread(ThreadStart(main))
-t.ApartmentState = ApartmentState.STA
-t.Start()
-t.Join()
+if __name__ == '__main__':
+    webview.create_window('CEF browser', 'https://pywebview.flowrl.com/hello')
+    webview.start(gui='cef')
