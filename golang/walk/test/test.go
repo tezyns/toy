@@ -1,31 +1,18 @@
 package main
 
 import (
-	"github.com/lxn/walk"
-	. "github.com/lxn/walk/declarative"
-	"strings"
+	"os"
+	"github.com/pirogom/walkmgr"
 )
 
 func main() {
-	var inTE, outTE *walk.TextEdit
+	wm := walkmgr.NewWin("WebView2 Test1", 800, 600)
+	var wv *walkmgr.WebView2
+	wv = wm.WebView2(os.TempDir(), func() {
+		wv.Navigate("https://letskorail.com")
+	}, func() {
+		walkmgr.MsgBox("WebView2 런타임을 찾을 수 없습니다.")
+	})
 
-	MainWindow{
-		Title:   "TEST",
-		MinSize: Size{600, 400},
-		Layout:  VBox{},
-		Children: []Widget{
-			HSplitter{
-				Children: []Widget{
-					TextEdit{AssignTo: &inTE},
-					TextEdit{AssignTo: &outTE, ReadOnly: true},
-				},
-			},
-			PushButton{
-				Text: "SCREAM",
-				OnClicked: func() {
-					outTE.SetText(strings.ToUpper(inTE.Text()))
-				},
-			},
-		},
-	}.Run()
+	wm.StartForeground()
 }

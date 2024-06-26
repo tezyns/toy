@@ -28,6 +28,8 @@ test.manifest 파일 생성
 
 ## 코드 작성, 빌드
 
+go get github.com/pirogom/walkmgr
+
 go 코드 작성 후 빌드는 빌드는 아래와 같이
 
 go build -ldflags "-s -w -H windowsgui"
